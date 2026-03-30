@@ -41,7 +41,7 @@ export default function Projects() {
             name: "BlueVerse – Smart Car Care & AI Wash Platform",
             desc: "An AI-powered car care platform offering automated robotic washes, premium detailing, and eco-friendly automotive services with a focus on luxury and efficiency.",
             url: "https://blueverse.ae",
-            logo: "/logos/blueverse.Webp",
+            logo: "/logos/blueverse.jpg", 
             tech: ["React", "MUI", "API Integration"],
         },
         {
