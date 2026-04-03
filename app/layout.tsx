@@ -3,42 +3,60 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+    variable: "--font-geist-sans",
+    subsets: ["latin"],
 });
 
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+    variable: "--font-geist-mono",
+    subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: "Mangal Singh Latwal",
-  description: "Full Stack Developer Portfolio",
-  icons: {
-    icon: "/mine.jpg",
-    apple: "/mine.jpg",
-  },
+    title: "Mangal Singh Latwal",
+    description: "Full Stack Developer Portfolio",
+    icons: {
+        icon: "/mine.jpg",
+        apple: "/mine.jpg",
+    },
 };
 
 export default function RootLayout({
-  children,
+    children,
 }: {
-  children: React.ReactNode;
+    children: React.ReactNode;
 }) {
-  return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
+    return (
+        <html
+            lang="en"
+            suppressHydrationWarning
+            className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+        >
+            <head>
+                {/* 🔥 THIS FIXES DARK MODE ON REFRESH */}
+                <script
+                    dangerouslySetInnerHTML={{
+                        __html: `
+              (function() {
+                try {
+                  const theme = localStorage.getItem('theme');
+                  if (theme === 'dark') {
+                    document.documentElement.classList.add('dark');
+                  }
+                } catch (e) {}
+              })();
+            `,
+                    }}
+                />
+            </head>
 
-      <body
-        className="min-h-full flex flex-col 
-        bg-[var(--background)] text-[var(--foreground)] 
-        transition-colors duration-300"
-      >
-        {children}
-      </body>
-    </html>
-  );
+            {/* <body className="min-h-full flex flex-col transition-colors duration-300"> */}
+            <body className="min-h-full flex flex-col 
+bg-white text-black 
+dark:bg-black dark:text-white 
+transition-colors duration-300">
+                {children}
+            </body>
+        </html>
+    );
 }

@@ -1,27 +1,24 @@
 import ThemeToggle from "./ThemeToggle";
 
 export default function Navbar() {
-  return (
-    <nav className="flex justify-between items-center p-4 shadow-md 
-    bg-white text-black dark:bg-black dark:text-white transition">
+    return (
+        <nav
+            className="flex justify-between items-center px-6 py-4 
+      sticky top-0 z-50 
+      backdrop-blur-md 
+      bg-white/70 dark:bg-black/70 
+      border-b border-gray-200 dark:border-gray-800 
+      transition-colors duration-300"
+        >
+            {/* Logo */}
+            <h1 className="font-bold text-xl tracking-wide">
+                Mangal.dev
+            </h1>
 
-      {/* Logo */}
-      <h1 className="font-bold text-xl">Mangal.dev</h1>
-
-      {/* Right side */}
-      <div className="flex items-center gap-4">
-        
-        {/* Optional Links */}
-        {/* 
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a> 
-        */}
-
-        {/* 🌙 Theme Toggle Button */}
-        {/* <ThemeToggle /> */}
-
-      </div>
-    </nav>
-  );
+            {/* Right side */}
+            <div className="flex items-center gap-4">
+                <ThemeToggle />
+            </div>
+        </nav>
+    );
 }

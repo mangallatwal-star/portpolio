@@ -1,36 +1,57 @@
+"use client";
+
+import { motion } from "framer-motion";
+
 export default function Experience() {
   return (
-    <section className="p-10 bg-gradient-to-b from-white to-gray-100 
-    dark:from-black dark:to-gray-900 text-black dark:text-white">
+    <section className="p-10">
 
-      <h2 className="text-3xl font-bold text-center mb-10">
+      {/* HEADING */}
+      <motion.h2
+        className="text-3xl font-bold text-center mb-14"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
         💼 Work Experience
-      </h2>
+      </motion.h2>
 
       <div className="max-w-4xl mx-auto relative">
 
-        {/* Vertical Line */}
-        <div className="absolute left-4 top-0 h-full w-1 
-        bg-gradient-to-b from-blue-500 to-purple-500"></div>
+        {/* Timeline Line */}
+        <div className="absolute left-5 top-0 h-full w-[2px] 
+        bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500"></div>
 
-        <div className="space-y-10">
+        <div className="space-y-14">
 
-          {/* Job 1 */}
-          <div className="relative pl-12">
-
+          {/* JOB 1 */}
+          <motion.div
+            className="relative pl-16"
+            initial={{ opacity: 0, x: -60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
             {/* Dot */}
-            <div className="absolute left-0 top-2 w-8 h-8 
-            bg-blue-500 rounded-full border-4 border-white dark:border-black"></div>
+            <div className="absolute left-0 top-3 w-8 h-8 
+            bg-gradient-to-r from-blue-500 to-purple-500 
+            rounded-full border-4 border-white dark:border-gray-900 shadow-md"></div>
 
-            <div className="p-6 rounded-xl shadow-lg 
-            bg-white dark:bg-gray-900 
-            hover:shadow-2xl transition">
-
-              <h3 className="font-semibold text-lg text-blue-600">
+            {/* Card */}
+            <motion.div
+              className="p-6 rounded-2xl 
+              border border-gray-200 dark:border-gray-800 
+              bg-white/60 dark:bg-gray-900/60 
+              backdrop-blur-md shadow-md 
+              hover:shadow-xl transition"
+              whileHover={{ y: -6 }}
+            >
+              <h3 className="font-semibold text-lg text-blue-600 dark:text-blue-400">
                 Fullstack Developer – Aegis Precision Pvt. Ltd.
               </h3>
 
-              <p className="text-sm text-gray-500">
+              <p className="text-sm text-gray-500 dark:text-gray-400">
                 Dec 2024 – Present
               </p>
 
@@ -48,37 +69,48 @@ export default function Experience() {
                   "PostgreSQL",
                   "Next.js",
                   "Bootstrap",
-                  "MUI"
+                  "MUI",
                 ].map((skill, i) => (
                   <span
                     key={i}
-                    className="text-xs px-3 py-1 rounded-full 
-                    bg-blue-100 text-blue-600 
-                    dark:bg-blue-900 dark:text-blue-300"
+                    className="text-xs px-3 py-1 rounded-full font-medium
+                    bg-blue-100 !text-blue-800
+                    dark:bg-blue-900 dark:!text-blue-200"
                   >
                     {skill}
                   </span>
                 ))}
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
-          {/* Job 2 */}
-          <div className="relative pl-12">
-
+          {/* JOB 2 */}
+          <motion.div
+            className="relative pl-16"
+            initial={{ opacity: 0, x: 60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
             {/* Dot */}
-            <div className="absolute left-0 top-2 w-8 h-8 
-            bg-purple-500 rounded-full border-4 border-white dark:border-black"></div>
+            <div className="absolute left-0 top-3 w-8 h-8 
+            bg-gradient-to-r from-purple-500 to-pink-500 
+            rounded-full border-4 border-white dark:border-gray-900 shadow-md"></div>
 
-            <div className="p-6 rounded-xl shadow-lg 
-            bg-white dark:bg-gray-900 
-            hover:shadow-2xl transition">
-
-              <h3 className="font-semibold text-lg text-purple-600">
+            {/* Card */}
+            <motion.div
+              className="p-6 rounded-2xl 
+              border border-gray-200 dark:border-gray-800 
+              bg-white/60 dark:bg-gray-900/60 
+              backdrop-blur-md shadow-md 
+              hover:shadow-xl transition"
+              whileHover={{ y: -6 }}
+            >
+              <h3 className="font-semibold text-lg text-purple-600 dark:text-purple-400">
                 MERN Developer – Euroinfotek Pvt Ltd
               </h3>
 
-              <p className="text-sm text-gray-500">
+              <p className="text-sm text-gray-500 dark:text-gray-400">
                 Feb 2020 – Dec 2024
               </p>
 
@@ -100,19 +132,19 @@ export default function Experience() {
                 ].map((skill, i) => (
                   <span
                     key={i}
-                    className="text-xs px-3 py-1 rounded-full 
-                    bg-purple-100 text-purple-600 
-                    dark:bg-purple-900 dark:text-purple-300"
+                    className="text-xs px-3 py-1 rounded-full font-medium
+                    bg-purple-100 !text-purple-800
+                    dark:bg-purple-900 dark:!text-purple-200"
                   >
                     {skill}
                   </span>
                 ))}
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
         </div>
       </div>
     </section>
   );
-} 
+}
